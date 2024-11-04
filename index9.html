@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Practice №9</title>
+
+	<link rel="stylesheet" type="text/css" href="style9.css">
+</head>
+<body>
+	<div class="calc">
+		<table class="calc-table">
+			<tr id="output-display">
+				<td id="output-string" colspan="5"> <span id="space">0</span> </td>
+			</tr>
+			<tr class="str">
+				<td> <button class="btn" id="seven" onclick="appendToDisplay('7')">7</button> </td>
+				<td> <button class="btn" id="eight" onclick="appendToDisplay('8')">8</button> </td>
+				<td> <button class="btn" id="nine" onclick="appendToDisplay('9')">9</button> </td>
+				<td> <button class="btn" id="divvy" onclick="appendToDisplay('/')">/</button> </td>
+				<td> <button class="btn" id="clear" onclick="clearDisplay()">C</button> </td>
+			</tr>
+			<tr class="str">
+				<td> <button class="btn" id="four" onclick="appendToDisplay('4')">4</button> </td>
+				<td> <button class="btn" id="five" onclick="appendToDisplay('5')">5</button> </td>
+				<td> <button class="btn" id="six" onclick="appendToDisplay('6')">6</button> </td>
+				<td> <button class="btn" id="multi" onclick="appendToDisplay('*')">*</button> </td>
+				<td> <button class="btn" id="xz" onclick="clearLast()"><-</button> </td>
+			</tr>
+			<tr class="str">
+				<td> <button class="btn" id="one" onclick="appendToDisplay('1')">1</button> </td>
+				<td> <button class="btn" id="two" onclick="appendToDisplay('2')">2</button> </td>
+				<td> <button class="btn" id="three" onclick="appendToDisplay('3')">3</button> </td>
+				<td> <button class="btn" id="minus" onclick="appendToDisplay('-')">-</button> </td>
+				<td rowspan="2"> <button class="btn" id="result" onclick="calculateResult()">=</button> </td>
+			</tr>
+			<tr class="str">
+				<td colspan="2"> <button class="btn" id="zero" onclick="appendToDisplay('0')">0</button> </td>
+				<td> <button class="btn" id="dot" onclick="appendToDisplay('.')">.</button> </td>
+				<td> <button class="btn" id="plus" onclick="appendToDisplay('+')">+</button> </td>
+			</tr>
+		</table>
+
+	</div>
+
+<script src="main.js"></script>
+</body>
+</html>
