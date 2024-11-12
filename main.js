@@ -1,37 +1,41 @@
 let displayText = '0';
 const display = document.getElementById('output-string');
-
+let dot = true;
 
 function appendToDisplay(value) {
     if (displayText == '0') {
-        if (!isNaN(value)) {
+        if (!isNaN(value) || value == '-') {
             displayText = '';
-            displayText += value;
         }
         if (value == '.') {
-            displayText += value;
+            dot = false;
         }
-        if (value == '-') {
-            displayText = '';
-            displayText += value;
-        }
-        display.textContent = displayText;
+        displayText += value;
     }
     else {
         if (priority(value) > 0) {
             if (priority(display.textContent[display.textContent.length - 1]) > 0) {
                 return;
             }
-            displayText += " " + value;    
+            displayText += " " + value; 
+            dot = true;   
         }
         else {
+            if (value == '.') {
+                if (!dot || priority(display.textContent[display.textContent.length - 1]) > 0) {
+                    return;
+                }
+                dot = false;
+            }
+            
             if (priority(display.textContent[display.textContent.length - 1]) > 0) {
                 displayText += ' ';
             }
+            
             displayText += value;
         }
-        display.textContent = displayText;
     }
+    display.textContent = displayText;
     updateDisplay();
 }
 
@@ -133,12 +137,17 @@ function clearLast () {
     if (displayText != '0') {
         displayText = displayText.slice(0, -1);
         display.textContent = display.textContent.slice(0, -1);
+        if (displayText[displayText.length-1] == ' ') {
+            displayText = displayText.slice(0, -1);
+            display.textContent = display.textContent.slice(0, -1);
+        }
     }
     if (displayText.length == 0) {
         displayText = '0';
         display.textContent = displayText;
     }
     //display.textContent = displayText;
+
     updateDisplay();
 }
 
